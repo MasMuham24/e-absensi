@@ -4,20 +4,6 @@ A modern Employee Attendance Management System built with **Laravel 12**, **Blad
 
 ---
 
-## 📸 Preview
-
-> Add screenshots of the application here.
-
-* Login Page
-* Admin Dashboard
-* HR Dashboard
-* Employee Dashboard
-* Attendance Management
-* Leave Request
-* Attendance Report
-
----
-
 ## 🚀 Features
 
 ### Authentication
