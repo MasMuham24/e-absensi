@@ -50,7 +50,7 @@ class ProfileController extends Controller
         ]);
 
         $request->user()->update([
-            'password' => Hash::make($request->password),
+            'password' => $request->password,
         ]);
 
         return back()->with('success', 'Password berhasil diperbarui.');

@@ -18,7 +18,7 @@ class Position extends Model
 
     public function departement(): BelongsTo
     {
-        return $this->belongsTo(Departemen::class);
+        return $this->belongsTo(Departemen::class, 'departement_id');
     }
 
     public function users():HasMany

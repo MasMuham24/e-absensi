@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Departemen;
-use App\Models\Department;
 use App\Models\Position;
 use Illuminate\Database\Seeder;
 

@@ -6,30 +6,37 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Attendance extends Model
+class LeaveApplication extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'user_id',
-        'attendance_date',
-        'check_in',
-        'check_out',
+        'leave_type',
+        'start_date',
+        'end_date',
+        'reason',
         'status',
-        'late_minutes',
+        'approved_by',
+        'approved_at',
     ];
 
     protected function casts(): array
     {
         return [
-            'attendance_date' => 'date',
-            'check_in' => 'datetime:H:i',
-            'check_out' => 'datetime:H:i',
+            'start_date' => 'date',
+            'end_date' => 'date',
+            'approved_at' => 'datetime',
         ];
     }
 
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function approver(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'approved_by');
     }
 }

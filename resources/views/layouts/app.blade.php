@@ -55,10 +55,28 @@
                         Absensi
                     </a>
 
-                    <a href="#" class="flex items-center px-3 py-2.5 text-slate-600 hover:bg-slate-50 hover:text-indigo-600 rounded-lg font-medium transition-colors">
-                        <i data-feather="file-text" class="w-5 h-5 mr-3"></i>
-                        Laporan
+                    @if(Auth::user() && Auth::user()->role === 'employee')
+                    <a href="{{ route('employee.leave-requests.index') }}" 
+                       class="flex items-center px-3 py-2.5 rounded-lg font-medium transition-colors {{ request()->routeIs('employee.leave-requests.*') ? 'bg-indigo-50 text-indigo-600' : 'text-slate-600 hover:bg-slate-50 hover:text-indigo-600' }}">
+                        <i data-feather="calendar" class="w-5 h-5 mr-3"></i>
+                        Pengajuan Cuti / Izin
                     </a>
+                    @endif
+
+                    @if(Auth::user() && Auth::user()->role === 'hr')
+                    <a href="{{ route('hr.leave-management.index') }}" 
+                       class="flex items-center px-3 py-2.5 rounded-lg font-medium transition-colors {{ request()->routeIs('hr.leave-management.*') ? 'bg-indigo-50 text-indigo-600' : 'text-slate-600 hover:bg-slate-50 hover:text-indigo-600' }}">
+                        <i data-feather="calendar" class="w-5 h-5 mr-3"></i>
+                        Pengajuan Cuti & Izin
+                    </a>
+                    @endif
+
+                    @if(Auth::user() && (Auth::user()->role === 'admin' || Auth::user()->role === 'hr'))
+                    <a href="{{ route('reports.attendance') }}" class="flex items-center px-3 py-2.5 rounded-lg font-medium transition-colors {{ request()->routeIs('reports.*') ? 'bg-indigo-50 text-indigo-600' : 'text-slate-600 hover:bg-slate-50 hover:text-indigo-600' }}">
+                        <i data-feather="file-text" class="w-5 h-5 mr-3"></i>
+                        Laporan Absensi
+                    </a>
+                    @endif
 
                     @if(Auth::user() && (Auth::user()->role === 'admin' || Auth::user()->role === 'hr'))
                     <div class="pt-4 mt-4 border-t border-slate-200">
@@ -79,7 +97,7 @@
                             Karyawan
                         </a>
 
-                        <a href="{{ 'profile' }}" class="flex items-center px-3 py-2.5 text-slate-600 hover:bg-slate-50 hover:text-indigo-600 rounded-lg font-medium transition-colors">
+                        <a href="{{ route('profile.edit') }}" class="flex items-center px-3 py-2.5 text-slate-600 hover:bg-slate-50 hover:text-indigo-600 rounded-lg font-medium transition-colors">
                             <i data-feather="settings" class="w-5 h-5 mr-3"></i>
                             Pengaturan
                         </a>
@@ -134,7 +152,7 @@
             <div class="p-4 flex-1 overflow-y-auto">
                 <nav class="space-y-1">
                     <!-- Mobile Navigation Links (Same as desktop) -->
-                    <a href="{{ request()->routeIs('admin.dashboard') || request()->routeIs('hr.dashboard') || request()->routeIs('employee.dashboard') ? '#' : url('/dashboard') }}"
+                    <a href="{{ Auth::user() ? route(Auth::user()->role . '.dashboard') : '#' }}"
                        class="flex items-center px-3 py-2.5 rounded-lg font-medium transition-colors {{ request()->routeIs('*.dashboard') ? 'bg-indigo-50 text-indigo-600' : 'text-slate-600 hover:bg-slate-50 hover:text-indigo-600' }}">
                         <i data-feather="home" class="w-5 h-5 mr-3"></i>
                         Dashboard
@@ -146,10 +164,28 @@
                         Absensi
                     </a>
 
-                    <a href="#" class="flex items-center px-3 py-2.5 text-slate-600 hover:bg-slate-50 hover:text-indigo-600 rounded-lg font-medium transition-colors">
-                        <i data-feather="file-text" class="w-5 h-5 mr-3"></i>
-                        Laporan
+                    @if(Auth::user() && Auth::user()->role === 'employee')
+                    <a href="{{ route('employee.leave-requests.index') }}" 
+                       class="flex items-center px-3 py-2.5 rounded-lg font-medium transition-colors {{ request()->routeIs('employee.leave-requests.*') ? 'bg-indigo-50 text-indigo-600' : 'text-slate-600 hover:bg-slate-50 hover:text-indigo-600' }}">
+                        <i data-feather="calendar" class="w-5 h-5 mr-3"></i>
+                        Pengajuan Cuti / Izin
                     </a>
+                    @endif
+
+                    @if(Auth::user() && Auth::user()->role === 'hr')
+                    <a href="{{ route('hr.leave-management.index') }}" 
+                       class="flex items-center px-3 py-2.5 rounded-lg font-medium transition-colors {{ request()->routeIs('hr.leave-management.*') ? 'bg-indigo-50 text-indigo-600' : 'text-slate-600 hover:bg-slate-50 hover:text-indigo-600' }}">
+                        <i data-feather="calendar" class="w-5 h-5 mr-3"></i>
+                        Pengajuan Cuti & Izin
+                    </a>
+                    @endif
+
+                    @if(Auth::user() && (Auth::user()->role === 'admin' || Auth::user()->role === 'hr'))
+                    <a href="{{ route('reports.attendance') }}" class="flex items-center px-3 py-2.5 rounded-lg font-medium transition-colors {{ request()->routeIs('reports.*') ? 'bg-indigo-50 text-indigo-600' : 'text-slate-600 hover:bg-slate-50 hover:text-indigo-600' }}">
+                        <i data-feather="file-text" class="w-5 h-5 mr-3"></i>
+                        Laporan Absensi
+                    </a>
+                    @endif
 
                     @if(Auth::user() && (Auth::user()->role === 'admin' || Auth::user()->role === 'hr'))
                     <div class="pt-4 mt-4 border-t border-slate-200">
@@ -170,7 +206,7 @@
                             Karyawan
                         </a>
 
-                        <a href="#" class="flex items-center px-3 py-2.5 text-slate-600 hover:bg-slate-50 hover:text-indigo-600 rounded-lg font-medium transition-colors">
+                        <a href="{{ route('profile.edit') }}" class="flex items-center px-3 py-2.5 text-slate-600 hover:bg-slate-50 hover:text-indigo-600 rounded-lg font-medium transition-colors">
                             <i data-feather="settings" class="w-5 h-5 mr-3"></i>
                             Pengaturan
                         </a>

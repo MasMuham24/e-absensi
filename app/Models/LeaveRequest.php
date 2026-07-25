@@ -21,7 +21,7 @@ class LeaveRequest extends Model
         'approved_at',
     ];
 
-    protected function cast(): array
+    protected function casts(): array
     {
         return [
             'start_date' => 'date',
@@ -35,7 +35,7 @@ class LeaveRequest extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function apporver(): BelongsTo
+    public function approver(): BelongsTo
     {
         return $this->belongsTo(User::class, 'approved_by');
     }

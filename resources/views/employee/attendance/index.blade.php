@@ -28,7 +28,7 @@
                     </div>
                     <div>
                         <h3 class="text-base font-semibold text-slate-800">Anda belum melakukan Check In hari ini</h3>
-                        <p class="text-sm text-slate-500 mt-1">Jam masuk kerja pukul 08:00 WIB. Harap melakukan check-in tepat waktu.</p>
+                        <p class="text-sm text-slate-500 mt-1">Jam masuk kerja pukul 08:00 WIB, jam pulang pukul 16:00 WIB. Harap melakukan check-in tepat waktu.</p>
                     </div>
                     <form action="{{ route('employee.attendance.check-in') }}" method="POST" class="inline-block">
                         @csrf
@@ -63,6 +63,7 @@
                         <div class="bg-slate-50 p-4 rounded-xl">
                             <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Jam Keluar</span>
                             <p class="text-lg font-bold text-slate-400 mt-1">Belum Check Out</p>
+                            <p class="text-xs text-slate-400 mt-0.5">Jadwal pulang 16:00 WIB</p>
                         </div>
                     </div>
 

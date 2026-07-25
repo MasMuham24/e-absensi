@@ -15,7 +15,7 @@
         </div>
 
         <!-- Filter Form -->
-        <form action="{{ route('management.attendances.index') }}" method="GET" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <form action="{{ route('admin.attendances.index') }}" method="GET" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
             <!-- Search -->
             <div>
                 <label for="search" class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Cari Karyawan</label>
@@ -63,7 +63,7 @@
                 <button type="submit" class="flex-1 inline-flex items-center justify-center px-4 py-2 bg-indigo-600 border border-transparent rounded-lg font-medium text-sm text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 shadow-sm transition-colors">
                     Filter
                 </button>
-                <a href="{{ route('management.attendances.index') }}" class="inline-flex items-center justify-center px-3 py-2 bg-white border border-slate-300 rounded-lg font-medium text-sm text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors" title="Reset Filter">
+                <a href="{{ route('admin.attendances.index') }}" class="inline-flex items-center justify-center px-3 py-2 bg-white border border-slate-300 rounded-lg font-medium text-sm text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors" title="Reset Filter">
                     <i data-feather="rotate-ccw" class="w-4 h-4"></i>
                 </a>
             </div>

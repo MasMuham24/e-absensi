@@ -19,11 +19,11 @@ class Departemen extends Model
 
     public function positions(): HasMany
     {
-        return $this->hasMany(Position::class);
+        return $this->hasMany(Position::class, 'departement_id');
     }
 
     public function users():HasMany
     {
-        return $this->hasMany(User::class);
+        return $this->hasMany(User::class, 'departement_id');
     }
 }
