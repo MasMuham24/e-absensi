@@ -1,6 +1,22 @@
-# Employee Attendance System
+# Employee Attendance System (HRIS v1.1.0)
 
-A modern Employee Attendance Management System built with **Laravel 12**, **Blade**, **Tailwind CSS**, and **MySQL**. This application helps companies manage employee attendance, leave requests, and attendance reports through a role-based access system.
+A modern Human Resource Information System (HRIS) built with **Laravel 12**, **Blade**, **Tailwind CSS**, and **MySQL**. This application helps companies manage employee data, attendance, leave requests, office locations, and geolocation-based attendance through a secure role-based access system.
+
+---
+
+## 🚀 Latest Release
+
+**Current Version:** **v1.1.0**
+
+### ✨ New Features
+
+- Office Management
+- Geolocation Attendance
+- Office Radius Configuration
+- Haversine Distance Calculation
+- Attendance Radius Validation
+- Google Maps Coordinate Link
+- Store Latitude, Longitude, Accuracy & Distance
 
 ---
 
@@ -8,129 +24,157 @@ A modern Employee Attendance Management System built with **Laravel 12**, **Blad
 
 ### Authentication
 
-* Manual Authentication (Without Laravel Breeze)
-* Login & Logout
-* Session Authentication
-* Role-based Access Control
+- Manual Authentication (Without Laravel Breeze)
+- Login & Logout
+- Session Authentication
+- Role-Based Access Control
 
 ### Roles
 
-* Admin
-* HR
-* Employee
+- Admin
+- HR
+- Employee
 
 ---
 
-## 👨‍💼 Admin & HR Features
+# 👨‍💼 Admin & HR Features
 
-### Dashboard
+## Dashboard
 
-* Dashboard Overview
-* Employee Statistics
-* Attendance Statistics
-* Leave Statistics
+- Dashboard Overview
+- Employee Statistics
+- Attendance Statistics
+- Leave Statistics
 
-### Department Management
+## Department Management
 
-* Create Department
-* Update Department
-* Delete Department
-* Search Department
-* Pagination
+- Create Department
+- Update Department
+- Delete Department
+- Search Department
+- Pagination
 
-### Position Management
+## Position Management
 
-* Create Position
-* Update Position
-* Delete Position
-* Search Position
-* Pagination
+- Create Position
+- Update Position
+- Delete Position
+- Search Position
+- Pagination
 
-### Employee Management
+## Employee Management
 
-* Create Employee
-* Update Employee
-* Delete Employee
-* Upload Avatar
-* Search Employee
-* Pagination
+- Create Employee
+- Update Employee
+- Delete Employee
+- Upload Avatar
+- Search Employee
+- Pagination
 
-### Attendance Management
+## Office Management
 
-* View All Attendance Records
-* Search Attendance
-* Filter by Date
-* Filter by Department
-* Filter by Status
-* Attendance History
+- Office CRUD
+- Office Location Configuration
+- Office Radius Configuration
+- Search Office
+- Pagination
 
-### Leave Request Management
+## Attendance Management
 
-* View Leave Requests
-* Approve Leave
-* Reject Leave
-* Manage Leave Status
+- View All Attendance Records
+- Search Attendance
+- Filter by Date
+- Filter by Department
+- Filter by Status
+- Attendance History
+- View Employee Coordinates
+- View Distance from Office
+- View Attendance Location Status
+- Open Location in Google Maps
 
-### Attendance Report
+## Leave Request Management
 
-* Attendance Summary
-* Department Filter
-* Date Filter
-* Attendance Statistics
+- View Leave Requests
+- Approve Leave
+- Reject Leave
+- Manage Leave Status
 
----
+## Attendance Report
 
-## 👨‍💻 Employee Features
-
-### Dashboard
-
-* Personal Dashboard
-* Attendance Summary
-
-### Attendance
-
-* Check In
-* Check Out
-* One Check-In Validation per Day
-* One Check-Out Validation per Day
-* Late Attendance Detection
-* Attendance History
-
-### Leave Request
-
-* Submit Leave Request
-* Submit Sick Leave
-* Submit Vacation Leave
-* View Request Status
-* Leave History
-
-### Profile
-
-* Update Profile
-* Change Password
-* Update Avatar
+- Attendance Summary
+- Department Filter
+- Date Filter
+- Attendance Statistics
 
 ---
 
-## 🛠 Tech Stack
+# 👨‍💻 Employee Features
 
-* Laravel 12
-* PHP 8.2+
-* Blade
-* Tailwind CSS
-* MySQL
-* Eloquent ORM
+## Dashboard
+
+- Personal Dashboard
+- Attendance Summary
+
+## Attendance
+
+- Check In
+- Check Out
+- One Check-In Validation per Day
+- One Check-Out Validation per Day
+- Late Attendance Detection
+- Attendance History
+
+### Geolocation Attendance
+
+- Browser Geolocation API
+- GPS Permission Request
+- Automatic Latitude & Longitude Detection
+- GPS Accuracy Detection
+- Haversine Distance Calculation
+- Office Radius Validation
+- Attendance Location Recording
+- Google Maps Coordinate Link
+
+## Leave Request
+
+- Submit Leave Request
+- Submit Sick Leave
+- Submit Vacation Leave
+- View Request Status
+- Leave History
+
+## Profile
+
+- Update Profile
+- Change Password
+- Update Avatar
 
 ---
 
-## 📂 Project Structure
+# 🛠 Tech Stack
+
+- Laravel 12
+- PHP 8.2+
+- Blade
+- Tailwind CSS
+- MySQL
+- JavaScript Geolocation API
+- Eloquent ORM
+
+---
+
+# 📂 Project Structure
 
 ```text
 app/
 ├── Http/
-│   └── Controllers/
-│       ├── Admin/
-│       └── Employee/
+│   ├── Controllers/
+│   │   ├── Admin/
+│   │   ├── Employee/
+│   │   └── HR/
+│   │
+│   └── Requests/
+│
 ├── Models/
 ├── Middleware/
 └── Providers/
@@ -139,6 +183,7 @@ resources/
 ├── views/
 │   ├── admin/
 │   ├── employee/
+│   ├── hr/
 │   └── layouts/
 
 routes/
@@ -148,7 +193,7 @@ routes/
 
 ---
 
-## ⚙️ Installation
+# ⚙️ Installation
 
 Clone the repository.
 
@@ -202,86 +247,155 @@ php artisan serve
 
 ---
 
-## 🗄 Database
+# 🗄 Database
 
 Main Tables
 
-* users
-* departments
-* positions
-* attendances
-* leave_requests
+- users
+- departments
+- positions
+- offices
+- attendances
+- leave_requests
 
 ---
 
-## 🔐 Default Roles
+# 🔐 Default Roles
 
-* Admin
-* HR
-* Employee
+- Admin
+- HR
+- Employee
 
 ---
 
-## 📈 Business Workflow
+# 📍 Geolocation Attendance Workflow
 
+```text
 Employee Login
-
-↓
-
+        │
+        ▼
 Check In
-
-↓
-
-Attendance Recorded
-
-↓
-
-Check Out
-
-↓
-
-Attendance History
-
-↓
-
-Leave Request Submission
-
-↓
-
-Admin/HR Approval
-
-↓
-
-Attendance Report
+        │
+        ▼
+Browser Requests GPS Permission
+        │
+        ▼
+Get Latitude, Longitude & Accuracy
+        │
+        ▼
+Calculate Distance (Haversine Formula)
+        │
+        ▼
+Validate Office Radius
+        │
+        ├── Inside Radius
+        │        │
+        │        ▼
+        │   Attendance Recorded
+        │
+        └── Outside Radius
+                 │
+                 ▼
+         Attendance Rejected
+```
 
 ---
 
-## 🎯 Learning Objectives
+# 📈 Business Workflow
+
+```text
+Employee Login
+        │
+        ▼
+Check In
+        │
+        ▼
+Attendance Recorded
+        │
+        ▼
+Check Out
+        │
+        ▼
+Attendance History
+        │
+        ▼
+Leave Request Submission
+        │
+        ▼
+Admin/HR Approval
+        │
+        ▼
+Attendance Report
+```
+
+---
+
+# 🎯 Learning Objectives
 
 This project demonstrates:
 
-* Manual Authentication
-* Role-Based Authorization
-* CRUD Operations
-* Eloquent Relationships
-* File Upload
-* Search & Filtering
-* Pagination
-* Business Workflow Implementation
-* Attendance Logic
-* Leave Management
-* Reporting System
-* Clean MVC Architecture
+- Manual Authentication
+- Role-Based Authorization
+- CRUD Operations
+- Form Request Validation
+- Eloquent Relationships
+- File Upload
+- Search & Filtering
+- Pagination
+- Business Workflow Implementation
+- Attendance Logic
+- Leave Management
+- Office Management
+- Geolocation API Integration
+- Haversine Formula Implementation
+- Radius Validation
+- Reporting System
+- Clean MVC Architecture
 
 ---
 
-## 📄 License
+# 📝 Changelog
+
+## v1.1.0
+
+### Added
+
+- Office Management
+- Geolocation Attendance
+- Office Radius Configuration
+- Haversine Formula
+- Radius Validation
+- Google Maps Coordinate Link
+- GPS Accuracy Recording
+- Latitude & Longitude Recording
+
+### Improved
+
+- Attendance Workflow
+- Attendance Validation
+- Database Structure
+
+---
+
+## v1.0.0
+
+Initial Release
+
+- Authentication
+- Employee Management
+- Attendance Management
+- Leave Management
+- Attendance Reporting
+
+---
+
+# 📄 License
 
 This project is intended for educational purposes and portfolio demonstration.
 
 ---
 
-## 👤 Author
+# 👤 Author
 
 **Muhammad Syafi'i**
 
